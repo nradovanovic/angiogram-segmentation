@@ -1,0 +1,42 @@
+# Python and PyTorch artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.dylib
+.pytest_cache/
+.mypy_cache/
+.vscode/
+.idea/
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# Data, results, and generated docs
+results/checkpoints/
+results/logs/
+results/plots/*.png.
+results/preprocessed/
+docs/
+*.log
+*.csv
+Database_134_Angiograms
+
+# Jupyter and notebooks
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Large data files
+data/
+*.pt
+*.pth
+*.ckpt
+
+

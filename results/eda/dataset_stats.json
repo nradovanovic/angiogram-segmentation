@@ -1,0 +1,11 @@
+{
+  "num_samples": 134,
+  "image_mean": 129.9237060546875,
+  "image_std": 37.12029266357422,
+  "mask_mean": 0.05447143316268921,
+  "image_size": [
+    512,
+    512
+  ],
+  "num_samples_visualised": 6
+}
