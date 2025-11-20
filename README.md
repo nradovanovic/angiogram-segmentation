@@ -2,34 +2,6 @@
 
 Automated segmentation of coronary arteries from X-ray angiograms using deep learning. This project provides preprocessing utilities, multiple segmentation architectures, a reproducible training pipeline, and evaluation tools to compare model performance on a dataset of 134 angiograms and corresponding vessel masks.
 
-## Project Structure
-
-```
-├── Database_134_Angiograms/        # Provided dataset (images + masks in .pgm)
-├── notebooks/                      # Jupyter notebooks for exploratory analysis
-├── results/
-│   ├── checkpoints/                # Saved model weights (created after training)
-│   ├── metrics/                    # JSON logs with metrics per model
-│   └── plots/                      # Comparison figures
-├── src/
-│   ├── data/
-│   │   ├── __init__.py
-│   │   └── dataset.py              # Dataset class and data split utilities
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── transunet.py            # Transformer-based encoder-decoder
-│   │   ├── unet3plus.py            # UNet 3+ implementation
-│   │   └── unetpp.py               # UNet++ (Nested UNet)
-│   ├── explore_dataset.py          # CLI for statistics & sample visualisation
-│   ├── metrics.py                  # Losses and evaluation metrics
-│   ├── preprocess_dataset.py       # CLI for split generation & array export
-│   ├── plot_results.py             # Aggregate metrics and generate plots
-│   ├── preprocessing.py            # Seed utilities, statistics, visualisations
-│   └── train.py                    # Training entrypoint for all models
-├── .gitignore
-└── requirements.txt
-```
-
 ## Environment Setup
 
 1. **Python version**: 3.9+ is recommended.
@@ -232,15 +204,5 @@ model.eval()
 - Data splits are deterministic given the `--seed` argument.
 - Augmentations use Albumentations (`horizontal/vertical flips`, `random rotations`, `contrast`, `elastic distortions`, and `noise`).
 - Mixed precision (`--amp`) provides additional reproducibility safeguards via deterministic cuDNN settings when seeds are fixed.
-
-## Optional Extensions
-
-- **Segment Anything Model (SAM)**: To experiment with zero-shot prompts, install `segment-anything` and integrate inside a separate script in `src/`. Preprocessing utilities can be reused for mask comparison.
-- **Additional Metrics**: Extend `src/metrics.py` with HD95 or sensitivity-specific scores if required.
-- **Fine-tuning Hyperparameters**: Adjust loss functions, add class-balancing weights, or enable deep supervision (`UNet++`, `UNet 3+`) by modifying the model constructors.
-
-## License
-
-The dataset terms may restrict redistribution; consult the data provider if you plan to share trained models. Code is released under the MIT License (update this section if you add a license file).
 
 
